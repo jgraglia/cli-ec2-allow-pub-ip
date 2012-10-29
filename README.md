@@ -8,7 +8,7 @@ Use Boto python library https://github.com/boto/boto
 This tool let you (temporary) add your public IP to a EC2 security group, for many TCP ports (for now, no need for UDP but it will easy to add).
 Then you can just do your stuff, and simply revoke thoses rights and restore the previous state.
 
-I use it to let me quickly configurer the EC2 group when I have to connect to my instance from various places : home (my ISP don't give me a fixed IP adress), hotel...
+I use it to let me quickly configure the EC2 group when I have to connect to my instance from various places : home (my ISP don't give me a fixed IP adress), hotel...
 
 ##Usage
 First, install Boto
@@ -20,6 +20,16 @@ and finally just launch
 ```
 $ add-ec2-ip.py -h
 ```
+
+Basically, 
+*select a Security Group name and a list of TCP ports to open as program parameters
+*start the program
+*rules will be addedd
+*then the program will hang on a "PRESS A KEY TO CONTINUE" message
+*When you are done, just press ENTER and the rules will be revoked
+
+###Dry Run
+A "--dry" option exists: rules won't be created nor revoked. It let you check your settings (keys..) and the group name.
 ##Example
 ```
 $ ./add-ec2-ip.py -g test_group  22 80 443 8080
