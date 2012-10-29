@@ -24,9 +24,9 @@ $ add-ec2-ip.py -h
 Basically, 
 * select a Security Group name and a list of TCP ports to open as program parameters
 * start the program
-* rules will be addedd
-* then the program will hang on a "PRESS A KEY TO CONTINUE" message
-* When you are done, just press ENTER and the rules will be revoked
+* rules will be added
+* then the program will hang on a "PRESS A KEY TO REVOKE RULES" message
+* when you are done, just press ENTER and the rules will be revoked
 
 ###Dry Run
 A "--dry" option exists: rules won't be created nor revoked. It let you check your settings (keys..) and the group name.
@@ -59,3 +59,5 @@ Duration: 0:00:04.983607
            REVOKE  >>  yyy.yyy.yyy.yyy/32 , TCP:  8080
 Now,  1 rules defined in test_group
 ```
+#Contact
+[@jgraglia][https://twitter.com/jgraglia]
