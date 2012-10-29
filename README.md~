@@ -29,7 +29,7 @@ Basically,
 *When you are done, just press ENTER and the rules will be revoked
 
 ###Dry Run
-a "--dry" option exists: rules won't be created nor revoked. It let you check your settings (keys..) and the group name.
+A "--dry" option exists: rules won't be created nor revoked. It let you check your settings (keys..) and the group name.
 ##Example
 ```
 $ ./add-ec2-ip.py -g test_group  22 80 443 8080
