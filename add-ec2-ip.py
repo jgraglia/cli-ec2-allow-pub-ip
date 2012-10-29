@@ -47,17 +47,26 @@ class DefaultRuleActivator():
 		self.securityGroup=securityGroup
 	def authorize(self, pub_ip_range, tcpPort):
 		print "           AUTH   >> ",  pub_ip_range, ", TCP: ", tcpPort
-	    	self.securityGroup.authorize(ip_protocol='tcp', from_port=tcpPort, to_port=tcpPort, cidr_ip=pub_ip_range)
+	    	try:
+			res = self.securityGroup.authorize(ip_protocol='tcp', from_port=tcpPort, to_port=tcpPort, cidr_ip=pub_ip_range)
+			print "                  ",res
+		except boto.exception.EC2ResponseError as e:
+			print "EC2 error", e
+			print "ERROR with ", pub_ip_range, tcpPort, "Press a key to ignore or CTRL+C"
+			raw_input()
+			
 	def revoke(self, pub_ip_range, tcpPort):
 		print "           REVOKE  >> ",  pub_ip_range, ", TCP: ", tcpPort
-	    	self.securityGroup.revoke('tcp', tcpPort, tcpPort, cidr_ip=pub_ip_range)
+		res = self.securityGroup.revoke('tcp', tcpPort, tcpPort, cidr_ip=pub_ip_range)
+		print "                  ",res
 
 def lookupSecurityGroupByName(conn, name):
     try:
     	rs = conn.get_all_security_groups(name)
     	print "Security groups: ", len(rs), " found: ", rs
     	return rs[0]
-    except boto.exception.EC2ResponseError:
+    except boto.exception.EC2ResponseError as e:
+	print "EC2 error", e
 	print "Error while looking for Security Group with name:", name
 	rs = conn.get_all_security_groups()
 	for sg in rs:
