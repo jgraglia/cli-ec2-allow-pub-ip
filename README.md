@@ -60,4 +60,4 @@ Duration: 0:00:04.983607
 Now,  1 rules defined in test_group
 ```
 #Contact
-[@jgraglia][https://twitter.com/jgraglia]
+[@jgraglia](https://twitter.com/jgraglia)
