@@ -118,7 +118,7 @@ def addIPSecurity(group, ports=22, dryRun=False):
 
 
 if __name__=="__main__":
-    parser = argparse.ArgumentParser(description='CLI control of AWS EC2 Security Groups', epilog="Example: add-ec2-ip.py -g mygroup 22 443 8080")
+    parser = argparse.ArgumentParser(description='CLI control of AWS EC2 Security Groups', epilog="Example: $ add-ec2-ip.py -g mygroup 22 443 8080")
     parser.add_argument('-g', '--group', required=True)
     parser.add_argument('-d', '--dry', default=False, action="store_true")
     parser.add_argument('ports', metavar='p', \
