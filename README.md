@@ -3,7 +3,7 @@ cli-ec2-allow-pub-ip
 
 CLI tools to add public IP to AWS Security Groups
 
-Use Boto python library https://github.com/boto/boto
+Use Boto python library [https://github.com/boto/boto][]
 
  ```python
 $ ./add-ec2-ip.py -g test_group  22 80 443 8080
