@@ -5,8 +5,8 @@ CLI tools to add public IP to AWS Security Groups
 
 Use Boto python library https://github.com/boto/boto
 ##Why
-This tool let you (temporary) add your public IP to a EC2 security group, for many TCP ports (for now, no need for UDP but it will easy to add).
-Then you can just do your stuff, and simply revoke thoses rights and restore the previous state.
+This tool let you (temporary) add your public IP to a EC2 security group, for many TCP ports (for now, no need for UDP but it will be easy to add).
+Then you can just do your stuff, and simply revoke those rights and restore the previous state.
 
 I use it to let me quickly configure the EC2 group when I have to connect to my instance from various places : home (my ISP don't give me a fixed IP adress), hotel...
 
@@ -23,7 +23,6 @@ $ add-ec2-ip.py -h
 
 Basically, 
 * select a Security Group name and a list of TCP ports to open as program parameters
-* start the program
 * rules will be added
 * then the program will hang on a "PRESS A KEY TO REVOKE RULES" message
 * when you are done, just press ENTER and the rules will be revoked
